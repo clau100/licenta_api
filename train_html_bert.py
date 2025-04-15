@@ -12,11 +12,11 @@ from bs4 import BeautifulSoup
 
 # --- CONFIG ---
 MODEL_NAME = "FacebookAI/xlm-roberta-base"
-MAX_LEN = 256
-BATCH_SIZE = 1
+MAX_LEN = 512
+BATCH_SIZE = 8
 EPOCHS = 3
 LR = 2e-5
-DEVICE = torch.device("cpu")
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
 # --- Helper: Fetch and clean live HTML ---
